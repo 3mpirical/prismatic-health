@@ -72,4 +72,6 @@ end
 
 puts Doctor.all()
 
+puts Appointment.find_by_sql("SELECT * FROM  appointments");
+
 
