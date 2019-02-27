@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_02_26_220355) do
+ActiveRecord::Schema.define(version: 2019_02_27_030615) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -40,6 +40,7 @@ ActiveRecord::Schema.define(version: 2019_02_26_220355) do
     t.bigint "institution_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "avatar"
     t.index ["email"], name: "index_doctors_on_email", unique: true
     t.index ["institution_id"], name: "index_doctors_on_institution_id"
     t.index ["reset_password_token"], name: "index_doctors_on_reset_password_token", unique: true
@@ -62,6 +63,7 @@ ActiveRecord::Schema.define(version: 2019_02_26_220355) do
     t.string "last_name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "avatar"
     t.index ["email"], name: "index_patients_on_email", unique: true
     t.index ["reset_password_token"], name: "index_patients_on_reset_password_token", unique: true
   end

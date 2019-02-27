@@ -1,2 +1,23 @@
-<h1>Patients#show</h1>
-<p>Find me in app/views/patients/show.html.erb</p>
+<img src="<%= current_patient.avatar %>" alt="">
+
+<h2>Welcome To Prismatic Health, <%= current_patient.first_name %> </h2>
+
+<br>
+
+<h3>Appointments</h3>
+
+<hr>
+
+<% current_patient.appointments.each() do |app|  %>
+    <h3> <%= app.name %> </h3>
+    <p>Location: <%= app.institution.name %>, <%= app.institution.address %> </p>
+    <p>Date: <%= app.date %></p>
+    <p>Time: <%= app.time %></p>
+    <p>Doctor: <%= link_to "#{app.doctor.first_name} #{app.doctor.last_name}", doctor_path(app.doctor.id) %> </p>
+    <p></p>
+
+    <hr>
+<% end %>
+
+
+
