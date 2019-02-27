@@ -25,8 +25,8 @@
 
   <% if resource_name == :doctor %>
     <div class="field">
-      <%= label_tag :institution_id, "Location:  " %> <br>
-      <%= select_tag :institution_id, options_for_select( @institutions.map() {|inst|
+      <%= f.label :institution_id, "Location:  " %> <br>
+      <%= f.select :institution_id, options_for_select( @institutions.map() {|inst|
           [inst.name, inst.id]
       }) , required: true %>
     </div>
