@@ -1,2 +1,21 @@
-<h1>Doctors#show</h1>
-<p>Find me in app/views/doctors/show.html.erb</p>
+<h2><%= "#{@doctor.first_name} #{@doctor.last_name}" %> M.D. </h2>
+    
+<div> <img src=" <%= @doctor.avatar %> " alt=""> </div>
+
+<h3>Located At: <%= @doctor.institution.name %> </h3>
+<h3>Current Patients: <%= @doctor.patients.length %> </h3>
+
+<% if current_doctor %>
+    <br>
+    <h3>Appointments</h3>
+    <br>
+    <hr>
+    <% current_doctor.appointments.each() do |app| %>
+        <h3> <%= app.name %> </h3>
+        <p> <%= app.institution.name %> </p>
+        <p> <%= app.date %> </p>
+        <p> <%= app.time %> </p>
+        <p> <%= app.patient.first_name + " " + app.patient.last_name %> </p>
+        <hr>
+    <% end %>
+<% end %>

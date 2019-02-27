@@ -5,8 +5,8 @@ Rails.application.routes.draw do
   devise_for :patients, path: "patients"
 
   resources :patients, only: [:show] do 
-    resources :appointments, only: [:new, :create, :edit, :update, :destroy]
+    resources :appointments, only: [:show, :new, :create, :edit, :update, :destroy]
   end
 
-  resources :doctors, only: [:show]
+  resources :doctors, only: [:index,:show]
 end

@@ -1,0 +1,13 @@
+
+
+<h2> <%= @appointment.name %> </h2>
+<p>Location: <%= @appointment.institution.name %>, <%= @appointment.institution.address %> </p>
+<p>Date: <%= @appointment.date %></p>
+<p>Time: <%= @appointment.time %></p>
+<p>Doctor: <%= link_to "#{@appointment.doctor.first_name} #{@appointment.doctor.last_name}", doctor_path(@appointment.doctor.id) %> </p>
+<div class="app__buttons">
+    <%= link_to "Back", patient_path(current_patient.id) %>
+    <%= link_to "Edit", edit_patient_appointment_path(current_patient.id, @appointment.id) %>
+    <%= link_to "Delete", patient_appointment_path(current_patient.id, @appointment.id), method: :delete %>
+</div>
+    

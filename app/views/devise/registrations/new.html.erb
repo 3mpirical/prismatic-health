@@ -9,6 +9,30 @@
   </div>
 
   <div class="field">
+    <%= f.label :first_name %><br />
+    <%= f.text_field :first_name, autofocus: true, autocomplete: "first name" %>
+  </div>
+
+  <div class="field">
+    <%= f.label :last_name %><br />
+    <%= f.text_field :last_name, autofocus: true, autocomplete: "last name" %>
+  </div>
+
+    <div class="field">
+    <%= f.label :avatar %><br />
+    <%= f.text_field :avatar, autocomplete: "avatar url" %>
+  </div>
+
+  <% if resource_name == :doctor %>
+    <div class="field">
+      <%= label_tag :institution_id, "Location:  " %> <br>
+      <%= select_tag :institution_id, options_for_select( @institutions.map() {|inst|
+          [inst.name, inst.id]
+      }) , required: true %>
+    </div>
+  <% end %>
+
+  <div class="field">
     <%= f.label :password %>
     <% if @minimum_password_length %>
     <em>(<%= @minimum_password_length %> characters minimum)</em>
