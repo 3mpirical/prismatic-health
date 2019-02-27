@@ -1,0 +1,12 @@
+
+<div class="navbar">
+    <% if !current_patient && !current_doctor  %>
+        <p>Login as: </p>
+        <%= link_to "Patient", new_patient_session_path %>
+        <%= link_to "Doctor", new_doctor_session_path %>
+    <% elsif current_patient %>
+        <%= link_to "Logout", destroy_patient_session_path(@patient.id), method: :delete %>
+    <% elsif current_doctor %>
+        <%= link_to "Logout", destroy_doctor_session_path(@doctor.id), method: :delete %>
+    <% end %>
+</div>

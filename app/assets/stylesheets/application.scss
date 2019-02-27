@@ -1,0 +1,92 @@
+///// Abstracts /////
+
+
+
+///// General Styles /////
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: inherit;
+}
+
+html {
+    font-size: 62.5%;
+}
+
+body {
+    box-sizing: inherit;
+    font-size: 1.6rem;
+    font-family: "Lato";
+    color: #37474F;
+    background-color: lighten(#E1F5FE, 3%);
+}
+
+.app-container {
+    position: relative;
+    left: 11rem;
+}
+
+
+///// header /////
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 3rem 1rem 2rem;
+    background-color: white;
+    font-size: 2.5rem;
+    font-family: "Merriweather";
+    border-bottom: 2px solid #64B5F6;
+
+    &__title {
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+        width: 50%;
+
+        h2 {
+            font-weight: 400;
+            font-size: 2.5rem;
+            margin-left: 2rem;
+        }
+
+        img {
+            height: 3.5rem;
+            transform: rotate(-90deg);
+        }
+    }
+
+    &__app {
+    }
+}
+
+
+///// navbar /////
+
+.navbar {
+    position: fixed;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    height: 100vh;
+    width: 8rem;
+    background-color: #64B5F6;
+    padding-top: 1rem;
+
+    a:link,
+    a:visited {
+        text-decoration: none;
+        color: #37474F;
+        padding: 1.5rem 0 ;
+        width: 100%;
+        text-align: center;
+        font-weight: 600;
+    }
+
+    a:hover{
+        background-color: lighten(#64B5F6, 10%);
+    }
+}
+
+
