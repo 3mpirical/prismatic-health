@@ -1,11 +1,13 @@
 
-<h2> <%= @appointment.name %> </h2>
-<p>Location: <%= @appointment.institution.name %>, <%= @appointment.institution.address %> </p>
-<p>Date: <%= @appointment.date %></p>
-<p>Time: <%= @appointment.time %></p>
-<p>Patient: <%= "#{@appointment.patient.first_name} #{@appointment.patient.last_name}" %> </p>
-<p>Doctor: <%= link_to "#{@appointment.doctor.first_name} #{@appointment.doctor.last_name}", doctor_path(@appointment.doctor.id) %> </p>
-<div class="app__buttons">
-    <a href="">Update Information at 1-802-776-6000</a>
-    <%= link_to "Back", doctor_path(current_doctor.id) %>
+<div class="appointment-container">
+    <h2> <%= @appointment.name %> </h2>
+    <div class="app__buttons">
+        <%= link_to "Back", doctor_path(current_doctor.id), class: "button" %>
+        <a class="link" href="">Update Information At 1-802-776-6000</a>
+    </div>
+    <p><span class="emphasized">Location:</span> <%= @appointment.institution.name %>, <%= @appointment.institution.address %> </p>
+    <p><span class="emphasized">Date:</span> <%= @appointment.date %></p>
+    <p><span class="emphasized">Time:</span> <%= @appointment.time %></p>
+    <p><span class="emphasized">Patient:</span> <%= "#{@appointment.patient.first_name} #{@appointment.patient.last_name}" %> </p>
+    <p><span class="emphasized">Doctor:</span> <%= link_to "#{@appointment.doctor.first_name} #{@appointment.doctor.last_name}", doctor_path(@appointment.doctor.id), class: "link" %></p>
 </div>

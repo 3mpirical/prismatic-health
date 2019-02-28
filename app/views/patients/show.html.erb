@@ -1,20 +1,28 @@
-<img src="<%= current_patient.avatar %>" alt="">
 
-<h2>Welcome To Prismatic Health, <%= current_patient.first_name %> </h2>
-    <%= link_to "edit", edit_patient_registration_path(current_patient.id) %>
-<br>
 
-<h3>Appointments</h3>
+<div class="patient-show">
+    <div class="patient-card">
+        <img src="<%= current_patient.avatar %>" alt="patient picture">
 
-<hr>
+        <h2>
+            Welcome To Prismatic Health, <br> 
+            <%= current_patient.first_name + " " + current_patient.last_name%> 
+            <%= link_to "edit", edit_patient_registration_path(current_patient.id), class: "button" %>
+        </h2>
+    </div>
 
-<% current_patient.appointments.each() do |app|  %>
-    <h3> <%= app.name %> </h3>
-    <p>Date: <%= app.date %></p>
-    <%= link_to "see more", patient_appointment_path(current_patient.id, app.id) %>
-
-    <hr>
-<% end %>
+    <div class="patient-appointments">
+        <% current_patient.appointments.each() do |app|  %>
+            <div class="patient-appointments__card">
+                <h3 class="app-name"> <%= app.name %> </h3>
+                <p>
+                    <%= app.date %>
+                    <%= link_to "info", patient_appointment_path(current_patient.id, app.id), class: "link" %>
+                </p>
+            </div>
+        <% end %>
+    </div>
+</div>
 
 
 

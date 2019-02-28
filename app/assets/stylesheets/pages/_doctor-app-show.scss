@@ -1,0 +1,20 @@
+.appointment-container {
+    margin-left: 1rem;
+    margin-top: 2rem;
+    padding: 2rem;
+
+    h2 {
+        font-size: 3.5rem;
+        color: $color-text-secondary;
+        text-decoration-line: underline;
+    }
+
+    .app__buttons {
+        margin: 1rem 0;
+    }
+
+    p {
+        font-size: 1.8rem;
+        margin-bottom: 1rem;
+    }
+}

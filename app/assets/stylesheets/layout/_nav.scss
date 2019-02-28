@@ -7,15 +7,15 @@
     align-items: center;
     height: calc(100vh - 5rem);
     width: 8rem;
-    background-color: #1976D2;
-    color: white;
+    background-color: $color-primary;
+    color: $color-white;
     z-index: 10;
 
     a:link,
     a:visited {
         display: inline-block;
         text-decoration: none;
-        color: white;
+        color: $color-white;
         padding: 1.5rem 0 ;
         width: 100%;
         text-align: center;
@@ -23,11 +23,11 @@
     }
 
     a:hover{
-        background-color: lighten(#1976D2, 10%);
+        background-color: lighten($color-primary, 10%);
     }
 
     &__login-as {
         // margin-top: 7vh;
-        border-bottom: 1px solid white;
+        border-bottom: 1px solid $color-white;
     }
 }

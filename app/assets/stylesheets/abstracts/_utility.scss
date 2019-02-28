@@ -1,0 +1,43 @@
+
+.link {
+    &:link,
+    &:visited {
+        text-decoration: none;
+        color: $color-primary;
+    }
+
+    &:hover {
+        color: $color-text-secondary;
+    }
+}
+
+.button {
+    &:link,
+    &:visited {
+        display: inline-block;
+        text-decoration: none;
+        color: darken($color-white, 5%);
+        padding: 0.2rem 0.6rem;
+        border: 1px solid $color-text-secondary;
+        border-radius: 4px;
+        background-color: $color-primary-light;
+        box-shadow: 1px 2px 1px rgba(0,0,0,0.3);
+        transition: 0.1s;
+    }
+
+    &:hover {
+        transform: translateY(1px);
+        box-shadow: 1px 1px 2px rgba(0,0,0,0.2);
+    }
+}
+
+.red {
+    &:link,
+    &:visited {
+        background-color: darken(red, 15%);
+    }
+}
+
+.emphasized {
+    color: $color-text-secondary;
+}

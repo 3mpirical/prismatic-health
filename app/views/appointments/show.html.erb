@@ -1,14 +1,17 @@
 
 
-<h2> <%= @appointment.name %> </h2>
-<p>Location: <%= @appointment.institution.name %>, <%= @appointment.institution.address %> </p>
-<p>Date: <%= @appointment.date %></p>
-<p>Time: <%= @appointment.time %></p>
-<p>Patient: <%= "#{@appointment.patient.first_name} #{@appointment.patient.last_name}" %> </p>
-<p>Doctor: <%= link_to "#{@appointment.doctor.first_name} #{@appointment.doctor.last_name}", doctor_path(@appointment.doctor.id) %> </p>
-<div class="app__buttons">
-    <%= link_to "Back", patient_path(current_patient.id) %>
-    <%= link_to "Edit", edit_patient_appointment_path(current_patient.id, @appointment.id) %>
-    <%= link_to "Delete", patient_appointment_path(current_patient.id, @appointment.id), method: :delete %>
+<div class="appointment-container">
+    <h2> <%= @appointment.name %> </h2>
+    <div class="app__buttons">
+        <%= link_to "Back", patient_path(current_patient.id), class: "button" %>
+        <%= link_to "Edit", edit_patient_appointment_path(current_patient.id, @appointment.id), class: "button" %>
+        <%= link_to "Delete", patient_appointment_path(current_patient.id, @appointment.id), method: :delete , class: "button red"%>
+    </div>
+    <p> <span class="emphasized">Location:</span> <%= @appointment.institution.name %>, <%= @appointment.institution.address %> </p>
+    <p><span class="emphasized">Date:</span> <%= @appointment.date %></p>
+    <p><span class="emphasized">Time:</span> <%= @appointment.time %></p>
+    <p><span class="emphasized">Patient:</span> <%= "#{@appointment.patient.first_name} #{@appointment.patient.last_name}" %> </p>
+    <p><span class="emphasized">Doctor:</span> <%= link_to "#{@appointment.doctor.first_name} #{@appointment.doctor.last_name}", doctor_path(@appointment.doctor.id), class: "link" %> </p>
 </div>
+
     

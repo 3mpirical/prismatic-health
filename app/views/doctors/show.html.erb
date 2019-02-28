@@ -1,25 +1,30 @@
-<h2><%= "#{@doctor.first_name} #{@doctor.last_name}" %> M.D. </h2>
-    
-<div> <img src=" <%= @doctor.avatar %> " alt=""> </div>
+<div class="doctor-show">
+    <div class="doctor-card">
+        <img src=" <%= @doctor.avatar %> " alt="">
+        <h2><%= "#{@doctor.first_name} #{@doctor.last_name}" %> M.D. </h2>
+        <h3>Located At: <%= @doctor.institution.name %> </h3>
+        <h3>Current Patients: <%= @doctor.patients.length %> </h3>
+        <% if current_doctor == @doctor %>
+            <%= link_to "edit", edit_doctor_registration_path(current_doctor.id), class: "button" %>
+            <%= link_to "delete", doctor_path(current_doctor.id), method: :delete, class: "button red" %>
+        <% end %>
+    </div>
 
-<h3>Located At: <%= @doctor.institution.name %> </h3>
-<h3>Current Patients: <%= @doctor.patients.length %> </h3>
 
-<% if current_doctor %>
-    <% if current_doctor == @doctor %>
-        <%= link_to "delete", doctor_path(current_doctor.id), method: :delete %>
-        <%= link_to "edit", edit_doctor_registration_path(current_doctor.id) %>
+
+    <% if current_doctor %>
+        <div class="doctor-appointments">
+            <% current_doctor.appointments.each() do |app| %>
+                <div class="doctor-appointments__card">
+                    <h3 class="app-name"> <%= app.name %> </h3>
+                    <p> 
+                        <%= app.date %> 
+                        <%= link_to "info", "/doctors/#{current_doctor.id}/appointments/#{app.id}", class: "link" %>
+                    </p>
+                    
+                </div>
+            <% end %>
+        </div>
     <% end %>
+</div>
 
-    <br>
-    <h3>Appointments</h3>
-    <br>
-    <hr>
-    <% current_doctor.appointments.each() do |app| %>
-        <h3> <%= app.name %> </h3>
-        <p> <%= app.date %> </p>
-        <p> <%= app.patient.first_name + " " + app.patient.last_name %> </p>
-        <%= link_to "info", "/doctors/#{current_doctor.id}/appointments/#{app.id}" %>
-        <hr>
-    <% end %>
-<% end %>
