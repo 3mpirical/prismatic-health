@@ -26,7 +26,11 @@ class DoctorsController < ApplicationController
 
   private
     def get_doctor
-      @doctor = current_doctor
+      ## currrent_doctor is not used here because we want to
+      ## conditionally check if our current doctor is the doctor
+      ## in our route parameters. The links to edit/delete routes
+      ## displays (or not) as a result of this.
+      @doctor = Doctor.find(params[:id])
     end
 
 end
