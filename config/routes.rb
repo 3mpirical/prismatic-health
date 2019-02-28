@@ -4,6 +4,7 @@ Rails.application.routes.draw do
 
   devise_for :doctors, path: "doctors"
   delete "doctors/:id" => "doctors#destroy"
+  get "doctors/:id/appointments/:id" => "doctors#show_doctor_apps"
 
   devise_for :patients, path: "patients"
 

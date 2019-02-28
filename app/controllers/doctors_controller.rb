@@ -8,6 +8,10 @@ class DoctorsController < ApplicationController
     @doctors = Doctor.all()
   end
 
+  def show_doctor_apps
+      @appointment = current_doctor.appointments.find(params[:id])
+  end
+
   def show
   end
 
@@ -22,7 +26,7 @@ class DoctorsController < ApplicationController
 
   private
     def get_doctor
-      @doctor = Doctor.find(params[:id])
+      @doctor = current_doctor
     end
 
 end

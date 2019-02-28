@@ -19,7 +19,7 @@
         <h3> <%= app.name %> </h3>
         <p> <%= app.date %> </p>
         <p> <%= app.patient.first_name + " " + app.patient.last_name %> </p>
-        <%= link_to "info", patient_appointment_path(app.patient.id, app.id) %>
+        <%= link_to "info", "/doctors/#{current_doctor.id}/appointments/#{app.id}" %>
         <hr>
     <% end %>
 <% end %>

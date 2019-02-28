@@ -1,0 +1,39 @@
+
+///// header /////
+.header {
+    position: fixed;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100vw;
+    height: 5rem;
+    // padding: 0 3rem;
+    background-color: white;
+    font-size: 2.5rem;
+    font-family: "Merriweather";
+    border-bottom: 2px solid #1976D2;
+    z-index: 20;
+
+    &__title {
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+        width: 50%;
+        margin-left: 2rem;
+
+        h2 {
+            font-weight: 400;
+            font-size: 2.5rem;
+            margin-left: 2rem;
+        }
+
+        img {
+            height: 3.5rem;
+            transform: rotate(-90deg);
+        }
+    }
+
+    &__app {
+        margin-right: 2rem;
+    }
+}
