@@ -4,6 +4,7 @@
 <p>Location: <%= @appointment.institution.name %>, <%= @appointment.institution.address %> </p>
 <p>Date: <%= @appointment.date %></p>
 <p>Time: <%= @appointment.time %></p>
+<p>Patient: <%= "#{@appointment.patient.first_name} #{@appointment.patient.last_name}" %> </p>
 <p>Doctor: <%= link_to "#{@appointment.doctor.first_name} #{@appointment.doctor.last_name}", doctor_path(@appointment.doctor.id) %> </p>
 <div class="app__buttons">
     <%= link_to "Back", patient_path(current_patient.id) %>

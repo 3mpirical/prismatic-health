@@ -1,7 +1,7 @@
 <img src="<%= current_patient.avatar %>" alt="">
 
 <h2>Welcome To Prismatic Health, <%= current_patient.first_name %> </h2>
-
+    <%= link_to "edit", edit_patient_registration_path(current_patient.id) %>
 <br>
 
 <h3>Appointments</h3>

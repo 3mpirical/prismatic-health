@@ -29,8 +29,10 @@
 
   <% if resource_name == :doctor %>
     <div class="field">
-      <%= f.label :institution_id %><br />
-      <%= f.text_field :institution_id, autocomplete: "institution" %>
+      <%= f.label :institution_id, "Location:  " %> <br>
+      <%= f.select :institution_id, options_for_select( @institutions.map() {|inst|
+          [inst.name, inst.id]
+      }) , required: true %>
     </div>
   <% end %>
 

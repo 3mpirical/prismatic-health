@@ -6,16 +6,20 @@
 <h3>Current Patients: <%= @doctor.patients.length %> </h3>
 
 <% if current_doctor %>
+    <% if current_doctor == @doctor %>
+        <%= link_to "delete", doctor_path(current_doctor.id), method: :delete %>
+        <%= link_to "edit", edit_doctor_registration_path(current_doctor.id) %>
+    <% end %>
+
     <br>
     <h3>Appointments</h3>
     <br>
     <hr>
     <% current_doctor.appointments.each() do |app| %>
         <h3> <%= app.name %> </h3>
-        <p> <%= app.institution.name %> </p>
         <p> <%= app.date %> </p>
-        <p> <%= app.time %> </p>
         <p> <%= app.patient.first_name + " " + app.patient.last_name %> </p>
+        <%= link_to "info", patient_appointment_path(app.patient.id, app.id) %>
         <hr>
     <% end %>
 <% end %>
