@@ -14,6 +14,7 @@
 
     <% if current_doctor %>
         <div class="doctor-appointments">
+            <h2>Appointments</h2>
             <% current_doctor.appointments.each() do |app| %>
                 <div class="doctor-appointments__card">
                     <h3 class="app-name"> <%= app.name %> </h3>

@@ -12,6 +12,7 @@
     </div>
 
     <div class="patient-appointments">
+        <h2>Appointments</h2>
         <% current_patient.appointments.each() do |app|  %>
             <div class="patient-appointments__card">
                 <h3 class="app-name"> <%= app.name %> </h3>
