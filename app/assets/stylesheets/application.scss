@@ -11,8 +11,10 @@
 @import "./layout/nav";
 
 // COMPONENTS //
+@import "./components/forms";
 
 // PAGES //
+@import "./pages/home";
 @import "./pages/patient-show";
 @import "./pages/appointment-show";
 @import "./pages/doctor-index";

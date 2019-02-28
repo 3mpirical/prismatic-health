@@ -1,37 +1,40 @@
+<br>
 <h1>Edit Appointment</h1>
+<br>
 
 <%= form_tag("/patients/#{current_patient.id}/appointments/#{@appointment.id}",local: true, method: :put) do %>
 
 
-        <div class="input">
+        <div class="field">
             <%= label_tag :name, "Type:  " %>
             <%= select_tag :name, options_for_select(["General Checkup", "Therapy", "Surgical Procedure"], @appointment.name),  required: true %>
         </div>
 
-        <div class="input">
+        <div class="field">
             <%= label_tag :date, "Date:  " %>
             <%= text_field_tag :date, nil ,placeholder: "ex Jan 14th 2020", value: @appointment.date , required: true %>
         </div>
         
-        <div class="input">
+        <div class="field">
             <%= label_tag :time, "Time:  " %>
             <%= text_field_tag :time, nil ,placeholder: "14:00", value: @appointment.time,required: true %>
         </div>
 
-        <p>Location: <%= @appointment.institution.name %> </p>
-          <div class="input" style=" display: none; ">
+        <p class="location-placeholder">Location: <%= @appointment.institution.name %> </p>
+          <div class="field" style=" display: none; ">
             <%= label_tag :institution_id, "Location:  " %>
             <%= select_tag :institution_id, options_for_select([@appointment.institution.id]),  required: true %>
         </div>
 
-        <div class="input">
+        <div class="field">
             <%= label_tag :doctor_id, "Doctors:  " %>
             <%= select_tag :doctor_id, options_for_select( @appointment.institution.doctors.map() {|doctor|
                 ["#{doctor.first_name} #{doctor.last_name}", doctor.id]
             }, ["#{@appointment.doctor.first_name} #{@appointment.doctor.last_name}", @appointment.doctor.id]) , required: true%>   
         </div>
 
-
-        <%= submit_tag "Submit" %>
+        <div class="actions">
+            <%= submit_tag "Submit" %>
+        </div>
     <% else %>
 <% end %>

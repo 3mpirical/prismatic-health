@@ -1,4 +1,6 @@
+<br>
 <h1>New Appointment</h1>
+<br>
 
 <%= form_tag("/patients/#{current_patient.id}/appointments",local: true, method: :post) do %>
 
@@ -6,60 +8,63 @@
 
     <% if @selected_institution %>
 
-        <div class="input">
+        <div class="field">
             <%= label_tag :name, "Type:  " %>
             <%= select_tag :name, options_for_select(["General Checkup", "Therapy", "Surgical Procedure"], @name),  required: true %>
         </div>
 
-        <div class="input">
+        <div class="field">
             <%= label_tag :date, "Date:  " %>
             <%= text_field_tag :date, nil ,placeholder: "ex Jan 14th 2020", value: @date , required: true %>
         </div>
         
-        <div class="input">
+        <div class="field">
             <%= label_tag :time, "Time:  " %>
             <%= text_field_tag :time, nil ,placeholder: "14:00", value: @time,required: true %>
         </div>
 
-        <p>Location: <%= @selected_institution.name %> </p>
-          <div class="input" style=" display: none; ">
+        <p class="location-placeholder">Location: <%= @selected_institution.name %> </p>
+          <div class="field" style=" display: none; ">
             <%= label_tag :institution_id, "Location:  " %>
             <%= select_tag :institution_id, options_for_select([@selected_institution.id]),  required: true %>
         </div>
 
-        <div class="input">
+        <div class="field">
             <%= label_tag :doctor_id, "Doctors:  " %>
             <%= select_tag :doctor_id, options_for_select( @doctors.map() {|doctor|
                 ["#{doctor.first_name} #{doctor.last_name}", doctor.id]
             }) , required: true%>   
         </div>
 
-
-        <%= submit_tag "Submit" %>
+        <div class="actions">
+            <%= submit_tag "Submit" %>
+        </div>
     <% else %>
-        <div class="input">
+        <div class="field">
             <%= label_tag :name, "Type:  " %>
             <%= select_tag :name, options_for_select(["General Checkup", "Therapy", "Surgical Procedure"]), required: true %>
         </div>
 
-        <div class="input">
+        <div class="field">
             <%= label_tag :date, "Date:  " %>
             <%= text_field_tag :date, nil, placeholder: "ex Jan 14th 2020", required: true %>
         </div>
         
-        <div class="input">
+        <div class="field">
             <%= label_tag :time, "Time:  " %>
             <%= text_field_tag :time, nil ,placeholder: "14:00", required: true %>
         </div>
 
-        <div class="input">
+        <div class="field">
             <%= label_tag :institution_id, "Location:  " %>
             <%= select_tag :institution_id, options_for_select( @institutions.map() {|inst|
                 [inst.name, inst.id]
             }) , required: true %>
         </div>
 
+        <div class="actions">
             <%= submit_tag "Find Doctors At This Location" %>
+        </div>
     <% end %>      
 
 
